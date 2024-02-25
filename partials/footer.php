@@ -14,6 +14,6 @@ if ( (is_administrator() && (basename($_SERVER['PHP_SELF']) != 'logout.php'))
 
 ?>
 	</div><!-- container -->
-	<div id="footer">Content &copy; 2022</div>
+	<div id="footer">Content &copy; 2024</div>
 </body>
 </html>

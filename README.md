@@ -1,3 +1,15 @@
+## CT275: CÔNG NGHỆ WEB - LAB 2
+
+Học kỳ 1, Năm học: 2024-2025
+
+**Họ tên**: ...
+
+**MSSV**: ...
+
+**Lớp HP**: ...
+
+
+
 ## Triển khai trên Apache HTTP
 
 ```

@@ -25,7 +25,6 @@ Học kỳ 1, Năm học: 2024-2025
     ServerName ct275-lab2.localhost
     # Set access permission 
     <Directory "D:/Projects/mysites/lab2/public">
-        Options -Indexes -FollowSymLinks -Includes -ExecCGI
         AllowOverride All
         Require all granted
     </Directory>

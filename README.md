@@ -21,10 +21,10 @@ Học kỳ 1, Năm học: 2024-2025
 </VirtualHost>
 
 <VirtualHost *:80>	
-    DocumentRoot "D:/Projects/mysites/lab2/public"
+    DocumentRoot "D:/mysites/lab2/public"
     ServerName ct275-lab2.localhost
     # Set access permission 
-    <Directory "D:/Projects/mysites/lab2/public">
+    <Directory "D:/mysites/lab2/public">
         AllowOverride All
         Require all granted
     </Directory>

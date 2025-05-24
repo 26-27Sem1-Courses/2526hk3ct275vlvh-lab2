@@ -5,9 +5,9 @@ include_once __DIR__ . '/../partials/header.php';
 require_once __DIR__ . '/../partials/db_connect.php';
 
 if (isset($_GET['random'])) {
-    $query = 'SELECT id, quote, source, favorite FROM quotes ORDER BY RAND() DESC LIMIT 1';
+    $query = 'SELECT id, quote, source, favorite FROM quotes ORDER BY RANDOM() LIMIT 1';
 } elseif (isset($_GET['favorite'])) {
-    $query = 'SELECT id, quote, source, favorite FROM quotes WHERE favorite=1 ORDER BY RAND() DESC LIMIT 1';
+    $query = 'SELECT id, quote, source, favorite FROM quotes WHERE favorite=true ORDER BY RANDOM() LIMIT 1';
 } else {
     $query = 'SELECT id, quote, source, favorite FROM quotes ORDER BY date_entered DESC LIMIT 1';
 }
@@ -26,7 +26,7 @@ if (!empty($row)) {
     echo "<div><blockquote>{$htmlspecialchars($row['quote'])}</blockquote>- 
 			{$htmlspecialchars($row['source'])}<br>";
 
-    if ($row['favorite'] == 1) {
+    if ($row['favorite']) {
         echo ' <strong>Yêu thích!</strong>';
     }
 

@@ -11,7 +11,7 @@ function is_administrator($user = 'me')
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="utf-8">

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="login.php" method="post">
         <p>
             <label>Địa chỉ Email
-                <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, "UTF-8") ?>">
+                <input type="email" name="email" value="<?= html_escape($_POST['email'] ?? '') ?>">
             </label>
         </p>
         <p>

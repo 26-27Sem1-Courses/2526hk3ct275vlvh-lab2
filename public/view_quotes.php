@@ -1,12 +1,15 @@
 <?php
 
 define('TITLE', 'Xem tất cả các Trích dẫn');
-include_once __DIR__ . '/../partials/header.php';
 
-echo '<h2>Tất cả các Trích dẫn</h2>';
+require_once __DIR__ . '/../partials/header.php';
+require_once __DIR__ . '/../partials/footer.php';
 
-require_once __DIR__ . '/../partials/check_admin.php';
+?>
+<?php render_page_header(); ?>
 
-echo '<p>Trang đang được xây dựng...</p>';
+<h2>Tất cả các Trích dẫn</h2>
 
-include_once __DIR__ . '/../partials/footer.php';
+<p>Trang đang được xây dựng...</p>
+
+<?php render_page_footer(); ?>

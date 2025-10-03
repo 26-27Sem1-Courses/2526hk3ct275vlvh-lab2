@@ -1,7 +1,12 @@
-<?php
-
-$error_message ??= 'Đã có lỗi xảy ra';
-$error = "<p class=\"error\">$error_message";
-$error .= isset($reason) ? " vì:<br>$reason</p>" : "</p>";
-$error .= isset($query) ? "<p>Câu truy vấn là: {$query}</p>" : '';
-echo $error;
+<?php if (!empty($error_message)): ?>
+    <div class="error">
+        <p><?= htmlspecialchars($error_message, ENT_QUOTES, "UTF-8") ?>
+            <?php if (!empty($reason)): ?>
+                <br><?= nl2br(htmlspecialchars($reason, ENT_QUOTES, "UTF-8")) ?>
+            <?php endif; ?>
+        </p>
+        <?php if (!empty($query)): ?>
+            <p>Query: <code><?= htmlspecialchars($query, ENT_QUOTES, "UTF-8") ?></code></p>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

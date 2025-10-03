@@ -1,16 +1,19 @@
 <?php
 
 define('TITLE', 'Login');
-include_once __DIR__ . '/../partials/header.php';
 
-$loggedin = false;
-$error_message = false;
+require_once __DIR__ . '/../partials/header.php';
+require_once __DIR__ . '/../partials/footer.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$loggedin = isset($_SESSION['user']);
+$error_message = null;
 
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = strtolower(trim($_POST['email'] ?? ''));
+    $password = $_POST['password'] ?? '';
 
-        if ((strtolower($_POST['email']) == 'me@example.com') && ($_POST['password'] == 'testpass')) {
+    if ($email !== '' && $password !== '') {
+        if ($email === 'me@example.com' && $password === 'testpass') {
             $_SESSION['user'] = 'me';
             $loggedin = true;
         } else {
@@ -21,19 +24,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-if ($error_message) {
-    include __DIR__ . '/../partials/show_error.php';
-}
+?>
+<?php render_page_header(); ?>
 
-if ($loggedin) {
-    echo '<p>Bạn đã đăng nhập!</p>';
-} else {
-    echo '<h2>Login Form</h2>
-	<form action="login.php" method="post">
-	<p><label>Địa chỉ Email <input type="email" name="email"></label></p>
-	<p><label>Mật khẩu <input type="password" name="password"></label></p>
-	<p><input type="submit" name="submit" value="Đăng nhập!"></p>
-	</form>';
-}
+<?php if (!empty($error_message)): ?>
+    <?php include __DIR__ . '/../partials/show_error.php'; ?>
+<?php endif; ?>
 
-include_once __DIR__ . '/../partials/footer.php';
+<?php if ($loggedin): ?>
+    <p>Bạn đã đăng nhập!</p>
+<?php else: ?>
+    <h2>Form Đăng nhập</h2>
+    <form action="login.php" method="post">
+        <p>
+            <label>Địa chỉ Email
+                <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, "UTF-8") ?>">
+            </label>
+        </p>
+        <p>
+            <label>Mật khẩu
+                <input type="password" name="password">
+            </label>
+        </p>
+        <p><input type="submit" name="submit" value="Đăng nhập!"></p>
+    </form>
+<?php endif; ?>
+
+<?php render_page_footer($loggedin); ?>

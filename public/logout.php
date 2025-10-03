@@ -1,12 +1,19 @@
 <?php
 
 define('TITLE', 'Logout');
-include_once __DIR__ . '/../partials/header.php';
 
-if (isset($_SESSION['user'])) {
+require_once __DIR__ . '/../partials/header.php';
+require_once __DIR__ . '/../partials/footer.php';
+
+$is_loggedin = isset($_SESSION['user']);
+
+if ($is_loggedin) {
     unset($_SESSION['user']);
 }
 
-echo '<p>Bạn đã đăng xuất.</p>';
+?>
+<?php render_page_header(); ?>
 
-include_once __DIR__ . '/../partials/footer.php';
+<p>Bạn đã đăng xuất.</p>
+
+<?php render_page_footer(); ?>

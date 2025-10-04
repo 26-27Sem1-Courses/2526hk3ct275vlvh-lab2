@@ -1,4 +1,5 @@
 <?php
+/* Đoạn mã xử lý PHP. */
 
 define('TITLE', 'Login');
 
@@ -23,8 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error_message = 'Hãy đảm bảo rằng bạn cung cấp đầy đủ địa chỉ email và mật khẩu!';
     }
 }
-
 ?>
+
+<!--
+    Đoạn mã HTML trình bày nội dung trang web.
+-->
 <?php render_page_header(); ?>
 
 <?php if (!empty($error_message)): ?>

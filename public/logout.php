@@ -1,4 +1,5 @@
 <?php
+/* Đoạn mã xử lý PHP. */
 
 define('TITLE', 'Logout');
 
@@ -12,6 +13,10 @@ if ($is_loggedin) {
 }
 
 ?>
+
+<!--
+    Đoạn mã HTML trình bày nội dung trang web.
+-->
 <?php render_page_header(); ?>
 
 <p>Bạn đã đăng xuất.</p>

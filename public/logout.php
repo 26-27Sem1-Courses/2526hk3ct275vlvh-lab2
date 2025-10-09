@@ -10,6 +10,8 @@ $is_loggedin = isset($_SESSION['user']);
 
 if ($is_loggedin) {
     unset($_SESSION['user']);
+    $_SESSION = [];
+    session_regenerate_id(true);
 }
 
 ?>

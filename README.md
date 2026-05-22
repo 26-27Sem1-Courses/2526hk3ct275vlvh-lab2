@@ -1,6 +1,6 @@
 ## CT275: CÔNG NGHỆ WEB - LAB 2
 
-Học kỳ 2, Năm học: 2025-2026
+Học kỳ 3, Năm học: 2025-2026
 
 **Họ tên**: ...
 
